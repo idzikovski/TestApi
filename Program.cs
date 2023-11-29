@@ -5,12 +5,14 @@ using TestApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connString = Environment.GetEnvironmentVariable("TestConnectionString");
+
 //builder.Services.AddDbContext<TestApiContext>(options => 
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello");
+app.MapGet("/", () => connString);
 
 //app.MapGet("/", async (TestApiContext dbContext) =>
 //{
