@@ -5,12 +5,14 @@ using TestApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connString = builder.Configuration.GetConnectionString("TestConnectionString");
+
 //builder.Services.AddDbContext<TestApiContext>(options => 
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-var connString = app.Configuration.GetConnectionString("TestConnectionString");
+
 
 app.MapGet("/", () => connString ?? "It is null");
 
