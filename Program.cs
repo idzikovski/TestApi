@@ -5,22 +5,24 @@ using TestApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<TestApiContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<TestApiContext>(options => 
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-app.MapGet("/", async (TestApiContext dbContext) =>
-{
-    dbContext.User.Add(new User("Ivan", "Djikovski"));
-    await dbContext.SaveChangesAsync();
+app.MapGet("/", () => "Hello");
 
-    return "Hello World!";
-});
+//app.MapGet("/", async (TestApiContext dbContext) =>
+//{
+//    dbContext.User.Add(new User("Ivan", "Djikovski"));
+//    await dbContext.SaveChangesAsync();
 
-app.MapGet("/users", (TestApiContext dbContext) =>
-{
-    return dbContext.User.Select(x => x);
-});
+//    return "Hello World!";
+//});
+
+//app.MapGet("/users", (TestApiContext dbContext) =>
+//{
+//    return dbContext.User.Select(x => x);
+//});
 
 app.Run();
