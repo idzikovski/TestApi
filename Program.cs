@@ -5,7 +5,7 @@ using TestApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connString = Environment.GetEnvironmentVariable("TestConnectionString");
+var connString = builder.Configuration.GetConnectionString("TestConnectionString");
 
 //builder.Services.AddDbContext<TestApiContext>(options => 
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
