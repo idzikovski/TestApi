@@ -54,4 +54,4 @@ jobs:
           app-name: 'ivan-djikovski-test'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ADA7BE1C4EDA4A7ABE89D3DFE011D96D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2B091CDBEA9E44778D45157623B9DDB4 }}
